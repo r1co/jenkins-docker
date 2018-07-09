@@ -4,9 +4,14 @@ LABEL maintainer "r1co@post-box.cc"
 
 USER root
 
+# add nodejs repo 
+RUN curl -sL https://deb.nodesource.com/setup_8.x | bash -
+
+
 # install deps
 RUN apt-get update && apt-get install -y \
     bsdmainutils \
+    nodejs \
  && rm -rf /var/lib/apt/lists/*
 
 # install docker cli
