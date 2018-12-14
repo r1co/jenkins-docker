@@ -1,4 +1,4 @@
-FROM jenkinsci/jenkins:latest
+FROM jenkins/jenkins:lts
 
 LABEL maintainer "r1co@post-box.cc"
 
