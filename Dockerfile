@@ -15,7 +15,7 @@ RUN apt-get update && apt-get install -y \
  && rm -rf /var/lib/apt/lists/*
 
 # install docker cli
-RUN mkdir -p /tmp/_install && cd /tmp/_install && wget https://get.docker.com/builds/Linux/x86_64/docker-latest.tgz  && tar -xvzf docker-latest.tgz && cd docker && cp docker /usr/bin/docker && rm -rf  /tmp/_install
+RUN mkdir -p /tmp/_install && cd /tmp/_install && wget https://download.docker.com/linux/static/stable/x86_64/docker-18.09.0.tgz  && tar -xvzf docker-18.09.0.tgz  && cd docker && cp docker /usr/bin/docker && rm -rf  /tmp/_install
 RUN chmod +x /usr/bin/docker
 
 # add jenkins to docker group 
