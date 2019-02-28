@@ -6,7 +6,8 @@ USER root
 
 # add nodejs repo 
 RUN curl -sL https://deb.nodesource.com/setup_8.x | bash -
-
+# install snyk 
+RUN npm install -g snyk 
 
 # install deps
 RUN apt-get update && apt-get install -y \
