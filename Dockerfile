@@ -6,8 +6,7 @@ USER root
 
 # add nodejs repo 
 RUN curl -sL https://deb.nodesource.com/setup_8.x | bash -
-# install snyk 
-RUN npm install -g snyk 
+
 
 # install deps
 RUN apt-get update && apt-get install -y \
@@ -26,6 +25,9 @@ RUN usermod -a -G docker jenkins
 # install docker-compose 
 RUN curl -L https://github.com/docker/compose/releases/download/1.20.1/docker-compose-`uname -s`-`uname -m` > /usr/local/bin/docker-compose
 RUN chmod +x /usr/local/bin/docker-compose
+
+# install snyk 
+RUN npm install -g snyk 
 
 # show env 
 RUN env
