@@ -1,22 +1,28 @@
-FROM jenkins/jenkins:lts
+FROM jenkins/jenkins:lts-jdk11
 
 LABEL maintainer "r1co@post-box.cc"
 
 USER root
 
-# add nodejs repo
-RUN curl -sL https://deb.nodesource.com/setup_8.x | bash -
-
-
 # install deps
 RUN apt-get update && apt-get install -y \
     bsdmainutils \
-    nodejs \
     python3 \
+    python3-pip \
     python3-setuptools \
- && rm -rf /var/lib/apt/lists/*
+    wget \
+    && rm -rf /var/lib/apt/lists/*
 
-RUN easy_install3 pip
+# add nodejs repo
+RUN curl -fsSL https://deb.nodesource.com/setup_14.x | bash -
+
+# install deps
+RUN apt-get update && apt-get install -y \
+    nodejs \
+    && rm -rf /var/lib/apt/lists/*
+
+
+# RUN easy_install pip
 
 RUN pip3 install xq
 
